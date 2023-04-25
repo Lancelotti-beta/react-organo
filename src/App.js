@@ -5,7 +5,14 @@ import Formulario from "./componente/Formulario";
 import Rodape from "./componente/Rodape";
 
 function App() {
-  
+
+  const [colaborador, setColaborador] = useState([]);
+  const adicionaColaborador = (novoColaborador) => {
+	console.log(novoColaborador);
+  	setColaborador([...colaborador, novoColaborador]);
+	console.log(colaborador);
+  };
+
   const [mostrar, setMostrar] = useState(true);
   const ocultarEmostrar = () => setMostrar(!mostrar);
 
@@ -13,9 +20,13 @@ function App() {
     <div className="App">
         <Banner />
 	<main>
-	    { mostrar && <Formulario /> }
+	    { mostrar && 
+		<Formulario 
+		    objetoAdicionado={usuario => adicionaColaborador(usuario)}
+		/> 
+	    }
 	    <section className="sessao-cards">
-	        <h2>Times</h2>
+	        <h2>Minha Organização</h2>
 	        <BotaoCriar onClick={ocultarEmostrar}>
 	          <img 
 	  	    src="/imagens/ig.png" 

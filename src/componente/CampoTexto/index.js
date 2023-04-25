@@ -1,11 +1,18 @@
 import "./index.css";
 
-const CampoTexto = ({label, placeholder, required}) => {
+const CampoTexto = ({label, placeholder, required, onChange, value}) => {
 	
+	const valorEnviado = (event) => onChange(event.target.value);
+
 	return (
 		<div className="campo-texto">
 			<label key={label}>{label}</label>
-			<input required={required} placeholder={placeholder} />
+			<input
+			  value={value}
+			  onChange={valorEnviado}
+			  required={required}
+			  placeholder={placeholder}
+			/>
 		</div>
 	);
 }
