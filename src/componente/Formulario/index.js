@@ -41,19 +41,24 @@ const Formulario = () => {
 	return(
 		<section className="formulario">
 			<form onSubmit={aoEnviar}>
-				<h2>Preencha os dados para criar o Card</h2>
-				{componenteTexto.map(({titulo, dica, obrigatorio}) => {
-						return <CampoTexto
-							obrigatorio={obrigatorio}
-							label={titulo} 
-							placeholder={dica}
-							/>
-						})
-				}
-				<ListaSuspensa obrigatorio={true} label="Time" item={escolas}/>
-				<BotaoCriar>
-					Criar Card
-				</BotaoCriar>
+			    <h2>Preencha os dados para criar o Card</h2>
+			    {componenteTexto.map(({titulo, dica, obrigatorio}) => {
+					return ( 
+						<CampoTexto
+						    required={obrigatorio}
+						    label={titulo} 
+						    placeholder={dica}
+						/>
+					);
+			    })}
+			    <ListaSuspensa 
+				obrigatorio={true} 
+				label="Time" 
+				item={escolas}
+			    />
+			    <BotaoCriar>
+				Criar Card
+			    </BotaoCriar>
 			</form>
 		</section>
 	);

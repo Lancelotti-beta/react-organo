@@ -1,8 +1,11 @@
 import "./index.css";
 
-const BotaoCriar = ({children}) => {
+const BotaoCriar = ({children, onClick}) => {
 	return (
-		<button className="botao">
+		<button 
+		    className="botao"
+		    onClick={onClick}
+		>
 		   {children}
 		</button>
 	);
