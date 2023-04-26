@@ -1,9 +1,32 @@
 .rodape {
+	align-items:center;
 	background: #6278F7;
+	background-image: url("../../../public/imagens/fundo.png");
 	color: #FFF;
+	display: flex;
+	justify-content: space-around;
 	text-align: center;
 }
 
-.rodape img {
+.rodape .social {
+	align-items: center;
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+	padding: 0;
+	width: 30%;
+}
+
+.rodape .social li a {
+	cursor: pointer;
+}
+
+.rodape .logo-marca {
 	max-width: 100%;
 }
+
+.rodape h2 {
+	font-size: 12px;
+	font-weight: 500;
+}
+

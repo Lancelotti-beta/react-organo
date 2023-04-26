@@ -62,10 +62,7 @@ function App() {
 	    <section className="sessao-cards">
 	        <h2>Minha Organização</h2>
 	        <BotaoCriar onClick={ocultarEmostrar}>
-	          <img 
-	  	    src="/imagens/ig.png" 
-	  	    alt="botão para ocultar o formulario"
-	  	  />
+	         
 	        </BotaoCriar>
 	    </section>
 	    {times.map(({titulo, corPrimaria, corSecundaria}) => {
