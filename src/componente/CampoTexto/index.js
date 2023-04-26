@@ -6,7 +6,7 @@ const CampoTexto = ({label, placeholder, required, onChange, value}) => {
 
 	return (
 		<div className="campo-texto">
-			<label key={label}>{label}</label>
+			<label>{label}</label>
 			<input
 			  value={value}
 			  onChange={valorEnviado}

@@ -7,10 +7,10 @@ import Rodape from "./componente/Rodape";
 
 function App() {
 
-  const [colaborador, setColaborador] = useState([]);
-  const adicionaColaborador = (novoColaborador) => {
-  	setColaborador([...colaborador, novoColaborador]);
-	console.log(colaborador);
+  const [pessoas, setPessoas] = useState([]);
+  const adicionaColaborador = (pessoa) => {
+  	setPessoas([...pessoas, pessoa]);
+	console.log(pessoas);
   };
 
   const [mostrar, setMostrar] = useState(true);
@@ -56,7 +56,8 @@ function App() {
 	    { mostrar && 
 		<Formulario 
 		    objetoAdicionado={usuario => adicionaColaborador(usuario)}
-		/> 
+		    escolas={times.map(({titulo}) => titulo)}
+		/>
 	    }
 	    <section className="sessao-cards">
 	        <h2>Minha Organização</h2>
@@ -68,13 +69,15 @@ function App() {
 	        </BotaoCriar>
 	    </section>
 	    {times.map(({titulo, corPrimaria, corSecundaria}) => {
-	    		return <Time
-		    	          key={titulo}
-	      			  time={titulo}
-		    		  corFundo={corPrimaria}
-		    		  textoCor={corSecundaria}
-	    		       />
-			})
+	    		 return <Time
+		                   
+		    	           key={titulo}
+	      			   time={titulo}
+		    		   corFundo={corPrimaria}
+		    		   textoCor={corSecundaria}
+		    		   pessoa={pessoas.filter(({time}) => time === titulo)}
+	    		        />
+			 })
 	    }
 	</main>
 	<Rodape />

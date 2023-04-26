@@ -4,7 +4,7 @@ import CampoTexto from "../CampoTexto";
 import ListaSuspensa from "../ListaSuspensa";
 import BotaoCriar from "../BotaoCriar";
 
-const Formulario = ({objetoAdicionado}) => {
+const Formulario = ({objetoAdicionado, escolas}) => {
 
 	const [nome, setNome] = useState('');
 	const [cargo, setCargo] = useState('');
@@ -20,17 +20,12 @@ const Formulario = ({objetoAdicionado}) => {
 		  imagem: img,
 		  time: opcao
 		});
-	}
 
-	const escolas = [
-	    '',
-	    'Lógica & Programação',
-            'Front-End',
-	    'Back-End',
-	    'DevOps',
-	    'UX & UI',
-	    'Mobile'
-	];
+		setNome("");
+		setCargo("");
+		setImg("");
+		setOpcao("");
+	}
 
 	const componenteTexto = [
         	{
@@ -65,6 +60,7 @@ const Formulario = ({objetoAdicionado}) => {
 				    .map(({titulo, dica, obrigatorio, valor, estado}) => {
 					return ( 
 				    	  <CampoTexto
+						key={titulo}
 						value={valor}
 						onChange={valor => estado(valor)}
 						required={obrigatorio}
@@ -75,6 +71,7 @@ const Formulario = ({objetoAdicionado}) => {
 			    	})
 			    }
 			    <ListaSuspensa
+				key={escolas}
 				value={opcao}
 				onChange={value => setOpcao(value)}
 				obrigatorio={true} 

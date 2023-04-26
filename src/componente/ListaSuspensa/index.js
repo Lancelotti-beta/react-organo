@@ -12,7 +12,7 @@ const ListaSuspensa = ({label, item, required, value, onChange}) => {
 			<select value={value} onChange={valorEnviado} required={required}>
 			    {
 			      item.map((item)=>{
-			          return <option key={item}>{item}</option>
+			          return <option>{item}</option>
 			      })
 			    }
 			</select>
